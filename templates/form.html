@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Get in Touch</title>
+    <!-- <script src='https://www.google.com/recaptcha/api.js?render=6LcsBocUAAAAAMgiOUtnIQQnPFDc5mndWr1rYGxD'></script> -->
+  </head>
+  <body>
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>Get in Touch</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <div class="g-recaptcha" data-sitekey="6LdHBocUAAAAABX1sGziwejTahMKgHRAnnfneHtO"></div>
+      <button type="submit" name="button">submit</button>
+
+    </form>
+
+
+
+<!-- <script>
+grecaptcha.ready(function() {
+grecaptcha.execute('6LcsBocUAAAAAMgiOUtnIQQnPFDc5mndWr1rYGxD', {action: 'getintouch'})
+.then(function(token) {
+// Verify the token on the server.
+});
+});
+</script> -->
+
+  </body>
+</html>

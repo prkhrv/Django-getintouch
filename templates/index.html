@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+
+
+    <h1>Hi {{user.username}}</h1>
+
+    <a href="{% url 'logout' %}"><button>logout</button></a>
+    {% else %}
+    <h1>Please Login to Continue</h1>
+    <a href="{% url 'login' %}"><button>login</button></a>
+    {% endif %}
+
+  </body>
+</html>
